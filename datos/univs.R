@@ -1,14 +1,14 @@
 #!/usr/bin/env rscript
     
-data.US <- NULL  # create a place to save the URLs # change this line
-data.UGR <- NULL  # create a place to save the URLs # change this line
+data.UA <- NULL  # create a place to save the URLs # change this line
+data.UMH <- NULL  # create a place to save the URLs # change this line
 library(RCurl)
 library(RJSONIO)
 library(ggplot2)
 
-alldata.UGR <- data.frame(Date=as.Date(character()),
+alldata.UMH <- data.frame(Date=as.Date(character()),
                           Views=character());
-alldata.US <- data.frame(Date=as.Date(character()),
+alldata.UA <- data.frame(Date=as.Date(character()),
                          Views=character());
 
 
@@ -29,24 +29,25 @@ for (year in (2010:2014)) {
 
         # For ugr
         rawData.ugr <- getURL(theURL.ugr)
-        data.UGR <- fromJSON(rawData.ugr)
-        df.UGR <- data.frame(Date=names(data.UGR$daily_views),Views=data.UGR$daily_views)
-        df.UGR <-  df.UGR[df.UGR$Views > 0,]
-        df.UGR$Date <- as.Date(df.UGR$Date)
-        alldata.UGR <- rbind( alldata.UGR, df.UGR )
+        data.UMH <- fromJSON(rawData.ugr)
+        df.UMH <- data.frame(Date=names(data.UMH$daily_views),Views=data.UMH$daily_views)
+        df.UMH <-  df.UMH[df.UMH$Views > 0,]
+        df.UMH$Date <- as.Date(df.UMH$Date)
+        alldata.UMH <- rbind( alldata.UMH, df.UMH )
 
-        # For US. I really have to learn functions or something
+        # For UA. I really have to learn functions or something
         rawData.us <- getURL(theURL.us)
-        data.US <- fromJSON(rawData.us)
-        df.US <- data.frame(Date=names(data.US$daily_views),Views=data.US$daily_views)
-        df.US <-  df.US[df.US$Views > 0,]
-        df.US$Date <- as.Date(df.US$Date)
-        alldata.US <- rbind( alldata.US, df.US )
+        data.UA <- fromJSON(rawData.us)
+        df.UA <- data.frame(Date=names(data.UA$daily_views),Views=data.UA$daily_views)
+        df.UA <-  df.UA[df.UA$Views > 0,]
+        df.UA$Date <- as.Date(df.UA$Date)
+        alldata.UA <- rbind( alldata.UA, df.UA )
 
     }
 }
-alldata.US <- alldata.US[order(alldata.US$Date),]
-alldata.UGR <- alldata.UGR[order(alldata.UGR$Date),]
+alldata.UA <- alldata.UA[order(alldata.UA$Date),]
+alldata.UMH <- alldata.UMH[order(alldata.UMH$Date),]
+ag.UA<-aggregate(alldata.UA$Views, by=list(alldata.UA$year), FUN=mean)
 
-ggplot(data=alldata.US,aes(x=Date,y=Views,group=1,col='US'))+geom_line()+geom_line(data=alldata.UA,aes(x=Date,y=Views,group=1,col='UMH'))
+ggplot(data=alldata.UA,aes(x=Date,y=Views,group=1,col='UA'))+geom_line()+geom_line(data=alldata.UA,aes(x=Date,y=Views,group=1,col='UMH'))
     ## END OF SCRIPT
