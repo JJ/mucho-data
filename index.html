@@ -132,12 +132,13 @@
 
 				</section>
 
-				<section data-background='img/la-piara.jpg' title='Paté la Piara, más bueno que el pan. Que no he encontrado el Apis'>
-				  <aside class='notes'>
-				    <p>Aquí tenía que venir una
-				  transpa de APIs, el paté, ya sabéis,
-				  Apis, Papis. Era lo que iba buscando
-				  pero me encontré una historia que,
+				<section>
+				  <section data-background='img/la-piara.jpg' title='Paté la Piara, más bueno que el pan. Que no he encontrado el Apis'>
+				    <aside class='notes'>
+				      <p>Aquí tenía que venir una
+					transpa de APIs, el paté, ya sabéis,
+					Apis, Papis. Era lo que iba buscando
+					pero me encontré una historia que,
 				  curiosamente, tiene que ver con el
 				      <em>big data</em>. Buscando
 				  imágenes para ilustrar esta
@@ -198,9 +199,74 @@
 				  que se usa, por excelencia, para
 				  trabajar con los datos. Lo veremos
 					más adelante.</p>
-				  </aside>
+				    </aside>
 
+				  </section>
+				  
+				  <section>
+				    <img src='img/UMH-vs-UA-wikipedia.png' alt='Visitas a la página de la wikipedia'>
+				    <aside class='notes'><p>Por ejemplo,
+				    usando un API muy simple de la
+				    Wikipedia se pueden descargar las
+				    visitas a las páginas día a
+				    día. Aquí las visitas a la página
+				    de la Universidad de Alicante y la
+				      de la Miguel Hernández, por
+				      ejemplo.</p>
+
+				    <p>De hecho, la Wikipedia da
+				  acceso a <a
+				  href='https://wikitech.wikimedia.org/wiki/Analytics'>una
+				  buena cantidad de datos de una forma
+				  sencilla. Viene a ser una de las
+				  banderas de la nueva web: se crean
+				  plataformas, no sólo sitios con
+				  contenido. También es un signo de
+				  transparencia: por eso se puede
+				  acceder de esa forma a los datos de
+				  la Wikipedia (y no tanto a los de
+				      FB, por ejemplo).</a> </aside>
+				  </section>
+				  
+				  <section>
+				    <pre><code>for (year in (2010:2014)) {
+    for (month in (1:12)) {
+        theURL <- "http://stats.grok.se/json/es/"
+        theURL <- paste0(theURL, year) # Adapta cosas        
+        theURL <- paste0(theURL, month) 
+        theURL.ugr <- paste0(theURL, "/Universidad_Miguel_Hernández")
+        rawData.ugr <- getURL(theURL.ugr)
+        data.UMH <- fromJSON(rawData.ugr)
+        df.UMH <- data.frame(Date=names(data.UMH$daily_views),Views=data.UMH$daily_views)
+        df.UMH <-  df.UMH[df.UMH$Views > 0,]
+        df.UMH$Date <- as.Date(df.UMH$Date)
+        alldata.UMH <- rbind( alldata.UMH, df.UMH )
+    }
+}
+alldata.UA <- alldata.UA[order(alldata.UA$Date),]</code></pre>
+
+				    <aside class='notes'>Es sólo parte
+        del programa, que se puede descargar <a
+				      href='datos/univs.R'>de
+				    aquí</a>; también se puede
+				    consultar la historia de R. En
+				    cualquier caso, si no entendéis
+				    del tema no tenéis que
+				    preocuparos: está escrito en un
+				    lenguaje llamado R, que es un
+				    lenguaje que os vais a encontrar
+				    una y otra vez cuando se habla de
+				    ciencia de datos y de big
+				    data. La idea es que los APIs o
+				      interfaces de programación
+				    <em>publican</em> los datos en un
+				    formato estándar, que se pueden
+				    usar desde cualquier lenguaje de
+				    programación, en particular este
+				    R</aside>
+				  </section>
 				</section>
+
 
 				<section
 				data-background='https://farm8.staticflickr.com/7467/15897351745_ccc1232f4e_h_d.jpg'
