@@ -267,15 +267,93 @@ alldata.UA <- alldata.UA[order(alldata.UA$Date),]</code></pre>
 				  </section>
 				</section>
 
+				<section>
+				  
+				  <section
+				    data-background='https://farm8.staticflickr.com/7467/15897351745_ccc1232f4e_h_d.jpg'
+title='Rascando/scraping'>
+				    <aside class='notes'>Scraping es
+				      extraer datos de dónde estén
+				      publicados sin, en principio,
+				      intención de que se descarguen. 
+				    </aside>
+				  </section>
 
-				<section
-				data-background='https://farm8.staticflickr.com/7467/15897351745_ccc1232f4e_h_d.jpg'
-				title='Rascando/scraping'>
-				  <aside class='notes'>Scraping es
-				extraer datos de dónde estén
-				publicados sin, en principio,
-				intención de que se descarguen. 
-				  </aside>
+				  <section>
+				    <h2>¿Cuánto pesa el Elche CF?</h2>
+				    <img src='img/pesos-elche.png'
+				    alt='pesos de los jugadores del
+				    Elche'>
+
+				    <aside class='notes'>Los pesos se
+				    han extraído de la página oficial
+				    del Elche y no ha sido nada fácil,
+				    la transparencia más complicada
+				      (después de la del
+				    paté). El más delgado es Víctor,
+				    un medio, y el más gordo Tyton,
+				    uno de los porteros.</aside>
+				  </section>
+
+				  <section>
+				    <pre><code>my $url = "http://www.elchecf.es/plantilla";
+my $dom = Mojo::DOM->new( get $url );
+my $jugadores =  $dom->find("div.titulo_datos_comunes");
+my @pesos;
+for my $p ( @$jugadores ) {
+  if ( $p->content() =~ /Peso/ ) {
+    my $peso;
+    if ( $p->content() =~ /div/ ) {
+      ($peso) = ( $p->content() =~ /o: (\d+)/ );
+    } else {
+      ($peso) = ( $p->content() =~ /(\d+)/ );
+    }
+    push @pesos, $peso;
+  }
+}
+say("Indice;Peso");
+my $i = 1;
+say join("\n",map($i++.";".$_, @pesos ));</code></pre>
+
+				    <aside class='notes'>Seguro que la
+				    mayoría no entiende nada. Si R es
+				    complicado, este lenguaje, llamado
+				    Perl, ya es la leche. ¿Alguien lo
+				    ha usado? Pues debería, porque
+				      hacer esto, <em>rascar</em>
+				      información de una página es
+				    <em>relativametne</em> (muy
+				    relativamente, de hecho),
+				    simple. También se puede hacer en
+				    R, por cierto, pero no es tan
+				    fácil (o si lo es, no tengo ni
+				    idea de cómo hacerlo; cada uno usa
+				    las herramientas que le resultan
+				    más familiares). </aside>
+				  </section>
+
+				  <section
+				  data-background='https://farm3.staticflickr.com/2811/9825503886_4b9bf98a83_o_d.jpg'
+				  title='Numbers'>
+
+				    <aside class='notes'>Los números
+				    están semiocultos, muchas veces
+				    simplemente por tener haber hecho
+				    la página web a mano, o
+				    semiautomáticamente con algún
+				    retoque, otras veces por empeño
+				    explícito para ocultar datos, como
+				    suele suceder en ciertos
+				    servicios, empresas o
+				    ayuntamientos. La cuestión es que
+				    si está en la web y tú lo puedes
+				    ver, en la mayoría de las veces,
+				      lo puede <em>extraer</em> un
+				      programa, así que
+				    <em>scraping</em> es siempre una
+				    solución de último
+				    recurso.</aside>
+				  </section>
 				</section>
 
 				<section>
@@ -324,7 +402,11 @@ alldata.UA <- alldata.UA[order(alldata.UA$Date),]</code></pre>
 				     href='https://www.flickr.com/photos/clement127/11672279656/'>Clement127</a></li>
 
 				   <li class='credits'>Zarpa de oso de
-				     <a href='https://www.flickr.com/photos/ucumari/15897351745/'>Valerie</a></li>
+				     <a
+				     href='https://www.flickr.com/photos/ucumari/15897351745/'>Valerie</a></li>
+
+				   <li class='credits'>Números de <a
+				     href='https://www.flickr.com/photos/andymag/9825503886/'>Andi Maguire</a></li>
 				 </section>
 			</div>
 
