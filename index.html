@@ -205,19 +205,19 @@
 					Apis, Papis. Era lo que iba buscando
 					pero me encontré una historia que,
 				  curiosamente, tiene que ver con el
-				      <em>big data</em>. Buscando
+					<em>big data</em> y la <em>big family</em>. Buscando
 				  imágenes para ilustrar esta
 				  transparencia, no encontré ninguna
-				  buena. Así que, no reparando en
+				  buena de patés Apis. Así que, no reparando en
 				  esfuerzos para tener una
 				  transparencia chachi, me fui al
-				  Mercadona local a buscar paté Apis,
+				  Mercadona de al lado de Informática a buscar paté Apis,
 				  tomate triturado Apis o lo que
-				  fuera. No lo encontré (y saqué esta
+				  fuera (Apis). No lo encontré (y saqué esta
 				  foto en vez de la anterior). Pero
 				  buscando la razón por la que un
 				  elemento tan fundamental de las
-				  meriendas no estaba en Mercadona, me
+				  meriendas patrias no estuviera en el Mercadona, me
 				      encontré con <a
 				  href='http://blogs.elconfidencial.com/espana/el-confidente/2009-02-13/el-clan-familiar-ruiz-mateos-se-moviliza-para-ir-a-comprar-apis-a-mercadona_441793/'>esta
 				  noticia</a> que habla de como la
@@ -227,7 +227,9 @@
 				  Mercadona mandando a miembros de la
 				  familia extensa a pedir o comprar
 				  sus productos o reclamarlos en caso
-				  de que no lo encontraran. Lo que
+				  de que no lo encontraran al
+				  enterarse que Mercadona iba a
+				  rescindir el contrato con ellos. Lo que
 				  ocurre es que trataron de difundir
 				  la campaña por correo electrónico y,
 				  por equivocación, lo enviaron a la
@@ -240,18 +242,21 @@
 				      le llaman Mercedona. O algo.</p>
 
 				      <p>Los denominados
-				  APIs, o interfaces de aplicación de
-				  programas, permiten extraer
+				  APIs, o interfaces de programación de
+				  aplicaciones (<em>application
+					  programming interface</em>), permiten extraer
 				  información ya procesada sobre la
 				  actividad online en una serie de
-				  servicios. Los APIs permiten
-				  recuperar tweets en Twitter, likes
+				  servicios en la web. Por ejemplo, los APIs permiten
+				  recuperar tweets en Twitter (es lo
+				  que las apps de Twitter como
+				  Tweetdeck o Hootsuite), likes
 				  en Facebook, visitas en la Wikipedia
 				  y una gran cantidad de cosas sobre
 				  la actividad pública de la
 				  gente. También se puede acceder a
 				  otro tipo de APIs, recordad que el
-				  big data no se refiere a la gente:
+				  big data no se refiere sólo y exclusivamente a la gente:
 				  por
 				  ejemplo <a href='http://en.wikipedia.org/wiki/List_of_financial_data_feeds'>datos
 				      de acciones en bolsa</a>
@@ -260,7 +265,7 @@
 				  o <a href='http://stats.stackexchange.com/questions/12670/data-apis-feeds-available-as-packages-in-r'>datos
 				      de todo tipo, desde el tiempo
 				  hasta archivos</a>. Por cierto,
-				  vemos por primera vez R, el lenguaje
+					vemos por primera vez <a href='http://r-project.org'>R</a>, el lenguaje
 				  que se usa, por excelencia, para
 				  trabajar con los datos. Lo veremos
 					más adelante.</p>
@@ -284,13 +289,15 @@
 				  href='https://wikitech.wikimedia.org/wiki/Analytics'>una
 				  buena cantidad de datos de una forma
 				      sencilla</a>. Viene a ser una de las
-				  banderas de la nueva web: se crean
+				  banderas de la nueva web (que ya no
+				  sé si va por la dos o la tres o ya
+				  ni siquiera se llama web): se crean
 				  plataformas, no sólo sitios con
 				  contenido. También es un signo de
 				  transparencia: por eso se puede
 				  acceder de esa forma a los datos de
 				  la Wikipedia (y no tanto a los de
-				      FB, por ejemplo).</p>< </aside>
+				      FB, por ejemplo).</p></aside>
 				  </section>
 				  
 				  <section>
@@ -314,7 +321,9 @@ alldata.UA <- alldata.UA[order(alldata.UA$Date),]</code></pre>
         del programa, que se puede descargar <a
 				      href='datos/univs.R'>de
 				    aquí</a>; también se puede
-				    consultar la historia de R. En
+				    consultar la historia de R, es
+        decir las pruebas, los datos y el resto de los comandos
+        ejecutados. Recordad, todo software libre. En
 				    cualquier caso, si no entendéis
 				    del tema no tenéis que
 				    preocuparos: está escrito en un
@@ -328,7 +337,7 @@ alldata.UA <- alldata.UA[order(alldata.UA$Date),]</code></pre>
 				    formato estándar, que se pueden
 				    usar desde cualquier lenguaje de
 				    programación, en particular este
-				    R</aside>
+				    R. </aside>
 				  </section>
 				</section>
 
@@ -336,8 +345,10 @@ alldata.UA <- alldata.UA[order(alldata.UA$Date),]</code></pre>
 				  
 				  <section
 				    data-background='https://farm8.staticflickr.com/7467/15897351745_ccc1232f4e_h_d.jpg'
-title='Rascando/scraping'>
-				    <aside class='notes'>Scraping es
+				     title='Rascando/scraping'>
+				    <aside class='notes'>Pero no todo
+				      el mundo es tan fácil y
+				      accesible. <em>Scraping</em> es
 				      extraer datos de dónde estén
 				      publicados sin, en principio,
 				      intención de que se descarguen. 
@@ -355,9 +366,15 @@ title='Rascando/scraping'>
 				    del Elche y no ha sido nada fácil,
 				    la transparencia más complicada
 				      (después de la del
-				    paté). El más delgado es Víctor,
+				    paté; al menos en este no tuve que
+				    ir al Mercadona y de camino
+				    comprar plátanos). El más delgado es Víctor,
 				    un medio, y el más gordo Tyton,
-				    uno de los porteros.</aside>
+				    uno de los porteros. E igual
+				    sería interesante ver qué ocurre
+				    con el resto de los equipos y
+				    cómo se distribuyen los pesos
+				    según la posición.</aside>
 				  </section>
 
 				  <section>
@@ -381,13 +398,14 @@ my $i = 1;
 say join("\n",map($i++.";".$_, @pesos ));</code></pre>
 
 				    <aside class='notes'>Seguro que la
-				    mayoría no entiende nada. Si R es
+				    mayoría no entiende nada. Si no
+				    entendéis nada, no miréis. Si R es
 				    complicado, este lenguaje, llamado
 				    Perl, ya es la leche. ¿Alguien lo
 				    ha usado? Pues debería, porque
 				      hacer esto, <em>rascar</em>
 				      información de una página es
-				    <em>relativametne</em> (muy
+				    <em>relativamente</em> (muy
 				    relativamente, de hecho),
 				    simple. También se puede hacer en
 				    R, por cierto, pero no es tan
