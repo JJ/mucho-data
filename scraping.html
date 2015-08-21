@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Data is out there</title>
+
+		<meta name="description" content="Big data, presentation for Tom's machine learning class">
+		<meta name="author" content="JJ Merelo">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+	  <div class="reveal">
+	    
+	    <!-- Any section element inside of this container is displayed as a slide -->
+	    <div class="slides">
+	      <section data-background='img/la-piara.jpg' title='Paté la Piara, más bueno que el pan. Que no he encontrado el Apis'>
+		<p>Los denominados
+		  APIs, o interfaces de programación de
+		  aplicaciones (<em>application
+		    programming interface</em>), permiten extraer
+		  información ya procesada sobre la
+		  actividad online en una serie de
+		  servicios en la web. Por ejemplo, los APIs permiten
+		  recuperar tweets en Twitter (es lo
+		  que las apps de Twitter como
+		  Tweetdeck o Hootsuite), likes
+		  en Facebook, visitas en la Wikipedia
+		  y una gran cantidad de cosas sobre
+		  la actividad pública de la
+		  gente. También se puede acceder a
+		  otro tipo de APIs, recordad que el
+		  big data no se refiere sólo y exclusivamente a la gente:
+		  por
+		  ejemplo <a href='http://en.wikipedia.org/wiki/List_of_financial_data_feeds'>datos
+		    de acciones en bolsa</a>
+		  o <a href='https://code.google.com/p/googletransitdatafeed/wiki/PublicFeeds'>datos
+		    de tráfico</a>
+		  o <a href='http://stats.stackexchange.com/questions/12670/data-apis-feeds-available-as-packages-in-r'>datos
+		    de todo tipo, desde el tiempo
+		    hasta archivos</a>. Por cierto,
+		  vemos por primera vez <a href='http://r-project.org'>R</a>, el lenguaje
+		  que se usa, por excelencia, para
+		  trabajar con los datos. Lo veremos
+		  más adelante.</p>
+</aside>
+
+</section>
+				  
+				  <section>
+				    <img src='img/UMH-vs-UA-wikipedia.png' alt='Visitas a la página de la wikipedia'>
+				    <aside class='notes'><p>Por ejemplo,
+				    usando un API muy simple de la
+				    Wikipedia se pueden descargar las
+				    visitas a las páginas día a
+				    día. Aquí las visitas a la página
+				    de la Universidad de Alicante y la
+				      de la Miguel Hernández, por
+				      ejemplo.</p>
+
+				    <p>De hecho, la Wikipedia da
+				  acceso a <a
+				  href='https://wikitech.wikimedia.org/wiki/Analytics'>una
+				  buena cantidad de datos de una forma
+				      sencilla</a>. Viene a ser una de las
+				  banderas de la nueva web (que ya no
+				  sé si va por la dos o la tres o ya
+				  ni siquiera se llama web): se crean
+				  plataformas, no sólo sitios con
+				  contenido. También es un signo de
+				  transparencia: por eso se puede
+				  acceder de esa forma a los datos de
+				  la Wikipedia (y no tanto a los de
+				      FB, por ejemplo).</p></aside>
+				  </section>
+				  
+				  <section>
+				    <pre><code>for (year in (2010:2014)) {
+    for (month in (1:12)) {
+        theURL <- "http://stats.grok.se/json/es/"
+        theURL <- paste0(theURL, year) # Adapta cosas        
+        theURL <- paste0(theURL, month) 
+        theURL.ugr <- paste0(theURL, "/Universidad_Miguel_Hernández")
+        rawData.ugr <- getURL(theURL.ugr)
+        data.UMH <- fromJSON(rawData.ugr)
+        df.UMH <- data.frame(Date=names(data.UMH$daily_views),Views=data.UMH$daily_views)
+        df.UMH <-  df.UMH[df.UMH$Views > 0,]
+        df.UMH$Date <- as.Date(df.UMH$Date)
+        alldata.UMH <- rbind( alldata.UMH, df.UMH )
+    }
+}
+alldata.UA <- alldata.UA[order(alldata.UA$Date),]</code></pre>
+
+				    <aside class='notes'>Es sólo parte
+        del programa, que se puede descargar <a
+				      href='datos/univs.R'>de
+				    aquí</a>; también se puede
+				    consultar la historia de R, es
+        decir las pruebas, los datos y el resto de los comandos
+        ejecutados. Recordad, todo software libre. En
+				    cualquier caso, si no entendéis
+				    del tema no tenéis que
+				    preocuparos: está escrito en un
+				    lenguaje llamado R, que es un
+				    lenguaje que os vais a encontrar
+				    una y otra vez cuando se habla de
+				    ciencia de datos y de big
+				    data. La idea es que los APIs o
+				      interfaces de programación
+				    <em>publican</em> los datos en un
+				    formato estándar, que se pueden
+				    usar desde cualquier lenguaje de
+				    programación, en particular este
+				    R. </aside>
+				  </section>
+				</section>
+
+				<section>
+				  
+				  <section
+				    data-background='https://farm8.staticflickr.com/7467/15897351745_ccc1232f4e_h_d.jpg'
+				     title='Rascando/scraping'>
+				    <aside class='notes'>Pero no todo
+				      el mundo es tan fácil y
+				      accesible. <em>Scraping</em> es
+				      extraer datos de dónde estén
+				      publicados sin, en principio,
+				      intención de que se descarguen. 
+				    </aside>
+				  </section>
+
+				  <section>
+				    <h2>¿Cuánto pesa el Elche CF?</h2>
+				    <img src='img/pesos-elche.png'
+				    alt='pesos de los jugadores del
+				    Elche'>
+
+				    <aside class='notes'>Los pesos se
+				    han extraído de la página oficial
+				    del Elche y no ha sido nada fácil,
+				    la transparencia más complicada
+				      (después de la del
+				    paté; al menos en este no tuve que
+				    ir al Mercadona y de camino
+				    comprar plátanos). El más delgado es Víctor,
+				    un medio, y el más gordo Tyton,
+				    uno de los porteros. E igual
+				    sería interesante ver qué ocurre
+				    con el resto de los equipos y
+				    cómo se distribuyen los pesos
+				    según la posición.</aside>
+				  </section>
+
+				  <section>
+				    <pre><code>my $url = "http://www.elchecf.es/plantilla";
+my $dom = Mojo::DOM->new( get $url );
+my $jugadores =  $dom->find("div.titulo_datos_comunes");
+my @pesos;
+for my $p ( @$jugadores ) {
+  if ( $p->content() =~ /Peso/ ) {
+    my $peso;
+    if ( $p->content() =~ /div/ ) {
+      ($peso) = ( $p->content() =~ /o: (\d+)/ );
+    } else {
+      ($peso) = ( $p->content() =~ /(\d+)/ );
+    }
+    push @pesos, $peso;
+  }
+}
+say("Indice;Peso");
+my $i = 1;
+say join("\n",map($i++.";".$_, @pesos ));</code></pre>
+
+				    <aside class='notes'>Seguro que la
+				    mayoría no entiende nada. Si no
+				    entendéis nada, no miréis. Si R es
+				    complicado, este lenguaje, llamado
+				    Perl, ya es la leche. ¿Alguien lo
+				    ha usado? Pues debería, porque
+				      hacer esto, <em>rascar</em>
+				      información de una página es
+				    <em>relativamente</em> (muy
+				    relativamente, de hecho),
+				    simple. También se puede hacer en
+				    R, por cierto, pero no es tan
+				    fácil (o si lo es, no tengo ni
+				    idea de cómo hacerlo; cada uno usa
+				    las herramientas que le resultan
+				    más familiares). Perl es software
+				    libre y todas las librerías, o
+				    colecciones de procedimientos para
+				    hacer este tipo de cosas, son
+				    también software libre.</aside>
+				  </section>
+
+				  <section>
+				    <h1>Scraping where it itches</h1>
+				    <aside class='notes'>Hay
+				      herramientas para trabajar con
+				      diferentes conjuntos de datos
+				      automáticamente e incluso un sitio,
+				      <a
+					 href='http://morph.io'><code>morph.io</code></a>
+				      para almacenar procedimientos de
+				  scrapeado y ejecutarlos
+				      automáticamente; todo ello en
+				      scripts también libres que puedes
+				      modificar y adaptar a las
+				      necesidades propias. También hay <a
+									  href='http://michelleminkoff.com/outwit-needlebase-hands-on-lab/'>extensiones
+					a Firefox como Outwit</a>. Hay
+				      que trabajar de <a
+							 href='http://en.wikipedia.org/wiki/Web_scraping'>múltiples
+					formas</a> pero, en muchos casos, se
+				      pueden obtener datos suficientes
+				      como para trabajar. Para hacer
+				      scraping en profundidad, en general,
+				      hay que tener ciertos conocimientos
+				      de programación web y saber, al
+				      menos, leer la estructura del fuente
+				  de una página web, porque lo que se
+				      hace, en la mayor parte de las
+				      ocasiones, es eso. En algunos casos
+				      también es cuestión de copiar y
+				      pegar, pero si tienes que actualizar
+				      la información cada cierto tiempo
+				      puede acabar siendo muy tedioso. Más
+				      recursos, incluyendo <a
+							      href='https://zenagiwa.wordpress.com/2014/10/11/non-programmers-guide-to-scraping-data/'>extensiones
+					para Chrome, están en esta
+					página</a>. Incluso si usáis <a
+									href='http://www.labnol.org/internet/google-web-scraping/28450/'>la
+					hoja de cálculo de Google Drive y
+					con un poquito de programación
+					puedes trabajar hasta con cosas que
+					se actualicen periódicamente.</a></aside>
+				  </section>
+
+				<section style="text-align: left;">
+					<h1>¿Alguna pregunta?</h1>
+				</section>
+
+				 <section>
+				   <section>
+				     <h2>Créditos</h2>
+				     
+				     <ol>
+				       <li class='credits'>Imagen del
+					 bus modificada de <a
+					 href='https://www.flickr.com/photos/mtaphotos/10004448523/'>MTA photos</a></li>
+				       <li class='credits'>Imagen de la Fundación del <a href='http://johnnymackintosh.com/2011/08/23/influences-on-johnny-mackintosh-isaac-asimov/'>blog de Johnny Mackintosh</a></li>
+				       <li class='credits'>Imagen del mulo de <a href='http://www.jacurutu.com/viewtopic.php?f=21&t=3213'>un foro</a></li>
+				       <li class='credits'>Imagen de
+					 gente con móviles
+					 de <a href='https://www.flickr.com/photos/kk/6863172432/'>Kris
+					 Krüg</a></li>
+				       <li class='credits'>Imagen de
+					 fila de sillas
+					 por <a href='https://www.flickr.com/photos/2_funky/4999986578/'>2 funky</a></li>
+				       <li class='credits'>Uves
+					 de <a href='https://www.flickr.com/photos/ancienthistory/11244652695/'>ancient history</a></li>
+				       
+				       <li class='credits'>Hulk
+					 de <a
+					 href='https://www.flickr.com/photos/clement127/11672279656/'>Clement127</a></li>
+				       
+				       <li class='credits'>Zarpa de oso de
+					 <a
+					   href='https://www.flickr.com/photos/ucumari/15897351745/'>Valerie</a></li>
+				       
+				   
+
+				     </ol>
+				   </section>
+				   <section>  <h2>Créditos II</h2>
+				     
+				     <ol>
+
+				           <li class='credits'>Números de <a
+					 href='https://www.flickr.com/photos/andymag/9825503886/'>Andi
+					 Maguire</a></li>
+
+				   <li class='credits'><a
+				 href='https://www.flickr.com/photos/stuartpilbrow/3206624177/'>Números
+				     de Perdidos por
+				 StuartPilbrow</a></li>
+
+				   <li class='credits'><a
+				 href='https://www.flickr.com/photos/bocadorada/283959170/'>Tuppers
+				     de Boca Dorada</a></li>
+
+				   <li class='credits'><a
+				     href='https://www.flickr.com/photos/hamed/1403196887/'>Torrente
+				     por Hamed Saber</a></li>
+				   
+				   <li class='credits'><a
+				     href='https://www.flickr.com/photos/george/3047558085/'>Mapa
+				     doblado de George Oates</a></li>
+				   <li class='credits'><a
+				     href='https://www.flickr.com/photos/jkirkhart35/4984385396/'>Fuego
+				     de campamento de Jerry Kirkhart</a></li>
+				   
+				 </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

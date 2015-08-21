@@ -47,7 +47,6 @@ for (year in (2010:2014)) {
 }
 alldata.UA <- alldata.UA[order(alldata.UA$Date),]
 alldata.UMH <- alldata.UMH[order(alldata.UMH$Date),]
-ag.UA<-aggregate(alldata.UA$Views, by=list(alldata.UA$year), FUN=mean)
 
 ggplot(data=alldata.UA,aes(x=Date,y=Views,group=1,col='UA'))+geom_line()+geom_line(data=alldata.UA,aes(x=Date,y=Views,group=1,col='UMH'))
     ## END OF SCRIPT

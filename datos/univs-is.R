@@ -47,7 +47,6 @@ for (year in (2010:2014)) {
 }
 alldata.HI <- alldata.HI[order(alldata.HI$Date),]
 alldata.HR <- alldata.HR[order(alldata.HR$Date),]
-ag.HI<-aggregate(alldata.HI$Views, by=list(alldata.HI$year), FUN=mean)
 
-ggplot(data=alldata.HI,aes(x=Date,y=Views,group=1,col='HI'))+geom_line()+geom_line(data=alldata.HE,aes(x=Date,y=Views,group=1,col='HR'))
+ggplot(data=alldata.HI,aes(x=Date,y=Views,group=1,col='HI'))+geom_line()+geom_line(data=alldata.HR,aes(x=Date,y=Views,group=1,col='HR'))
     ## END OF SCRIPT
