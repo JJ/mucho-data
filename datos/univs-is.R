@@ -49,4 +49,9 @@ alldata.HI <- alldata.HI[order(alldata.HI$Date),]
 alldata.HR <- alldata.HR[order(alldata.HR$Date),]
 
 ggplot(data=alldata.HI,aes(x=Date,y=Views,group=1,col='HI'))+geom_line()+geom_line(data=alldata.HR,aes(x=Date,y=Views,group=1,col='HR'))
+alldata.HR$year <- as.Date(cut(alldata.HR$Date,breaks="year"))
+ag.HR<-aggregate(alldata.HR$Views, by=list(alldata.HR$year), FUN=mean)
+alldata.HI$year <- as.Date(cut(alldata.HI$Date,breaks="year"))
+ag.HI<-aggregate(alldata.HI$Views, by=list(alldata.HI$year), FUN=mean)
+ggplot(data=ag.HR,aes(x=Group.1,y=x,group=1))+geom_line(aes(col='HR'))+geom_line(data=ag.HI,aes(x=Group.1,y=x,group=1,col='HI'))
     ## END OF SCRIPT

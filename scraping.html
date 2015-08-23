@@ -40,10 +40,11 @@
 	    
 	    <!-- Any section element inside of this container is displayed as a slide -->
 	    <div class="slides">
-	      <section data-background='https://farm6.staticflickr.com/5567/14778479881_3bb955bfc5_b_d.jpg' title='Apis, the ox-god'>
-		<h1 class='img'>Grab the API</h1>
+	      <section>
+		<section data-background='https://farm6.staticflickr.com/5567/14778479881_3bb955bfc5_b_d.jpg' title='Apis, the ox-god'>
+		  <h1 class='img'>Grab the API</h1>
 
-		<aside class='notes'><p>Los denominados
+		  <aside class='notes'><p>Los denominados
 		  APIs, o interfaces de programación de
 		  aplicaciones (<em>application
 		    programming interface</em>), permiten extraer
@@ -75,79 +76,78 @@
 
 	      </section>
 	      
-	      <section>
-		<img src='img/UMH-vs-UA-wikipedia.png' alt='Wikipedia visits HR vs  HI'>
-				    <aside class='notes'><p>Por ejemplo,
-				    usando un API muy simple de la
-				    Wikipedia se pueden descargar las
-				    visitas a las páginas día a
-				    día. Aquí las visitas a la página
-				    de la Universidad de Alicante y la
-				      de la Miguel Hernández, por
-				      ejemplo.</p>
-
-				    <p>De hecho, la Wikipedia da
-				  acceso a <a
+		<section>
+		  <img src='img/hr-vs-hi-wp.png' alt='Wikipedia visits HR vs  HI'>
+		  <aside class='notes'><p>Por ejemplo,
+		      usando un API muy simple de la
+		      Wikipedia se pueden descargar las
+		      visitas a las páginas día a
+		      día. Aquí las visitas a la página
+		      de la Universidad de Alicante y la
+		      de la Miguel Hernández, por
+		      ejemplo.</p>
+		    
+		    <p>De hecho, la Wikipedia da
+		      acceso a <a
 				  href='https://wikitech.wikimedia.org/wiki/Analytics'>una
-				  buena cantidad de datos de una forma
-				      sencilla</a>. Viene a ser una de las
-				  banderas de la nueva web (que ya no
-				  sé si va por la dos o la tres o ya
-				  ni siquiera se llama web): se crean
-				  plataformas, no sólo sitios con
-				  contenido. También es un signo de
-				  transparencia: por eso se puede
-				  acceder de esa forma a los datos de
-				  la Wikipedia (y no tanto a los de
-				      FB, por ejemplo).</p></aside>
-				  </section>
+			buena cantidad de datos de una forma
+			sencilla</a>. Viene a ser una de las
+		      banderas de la nueva web (que ya no
+		      sé si va por la dos o la tres o ya
+		      ni siquiera se llama web): se crean
+		      plataformas, no sólo sitios con
+		      contenido. También es un signo de
+		      transparencia: por eso se puede
+		      acceder de esa forma a los datos de
+		      la Wikipedia (y no tanto a los de
+		      FB, por ejemplo).</p></aside>
+		</section>
 				  
-				  <section>
-				    <pre><code>library(RCurl)
+		<section>
+		  <pre><code>library(RCurl)
 library(RJSONIO) #more stuff
 for (year in (2010:2014)) {
     for (month in (1:12)) {        
         theURL <- "http://stats.grok.se/json/is/"
-        theURL <- paste0(theURL, year)        
-        theURL <- paste0(theURL, month) # Some month magic here 
-        theURL.HI <- paste0(theURL, "/Háskóli_Íslands")
-        rawData.HI <- getURL(theURL.HI)
-        data.HI <- fromJSON(rawData.HI)
-        df.HI <- data.frame(Date=names(data.HI$daily_views),Views=data.HI$daily_views)
-        df.HI <-  df.HI[df.HI$Views > 0,]
-        df.HI$Date <- as.Date(df.HI$Date)
-        alldata.HI <- rbind( alldata.HI, df.HI ) # And more
+	theURL <- paste0(theURL, year)        
+	theURL <- paste0(theURL, month) # Some month magic here 
+	theURL.HI <- paste0(theURL, "/Háskóli_Íslands")
+	rawData.HI <- getURL(theURL.HI)
+	data.HI <- fromJSON(rawData.HI)
+	df.HI <- data.frame(Date=names(data.HI$daily_views),Views=data.HI$daily_views)
+	df.HI <-  df.HI[df.HI$Views > 0,]
+	df.HI$Date <- as.Date(df.HI$Date)
+	alldata.HI <- rbind( alldata.HI, df.HI ) # And more
     }
-}
-</code></pre>
+}</code></pre>
 
-				    <aside class='notes'>Es sólo parte
-				      del programa, que se puede descargar <a
-									      href='datos/univs-is.R'>de
-				    aquí</a>; también se puede
-				    consultar la historia de R, es
-        decir las pruebas, los datos y el resto de los comandos
-        ejecutados. Recordad, todo software libre. En
-				    cualquier caso, si no entendéis
-				    del tema no tenéis que
-				    preocuparos: está escrito en un
-				    lenguaje llamado R, que es un
-				    lenguaje que os vais a encontrar
-				    una y otra vez cuando se habla de
-				    ciencia de datos y de big
-				    data. La idea es que los APIs o
-				      interfaces de programación
-				    <em>publican</em> los datos en un
-				    formato estándar, que se pueden
-				    usar desde cualquier lenguaje de
-				    programación, en particular este
-				    R. </aside>
-				  </section>
-				</section>
+		  <aside class='notes'>Es sólo parte
+		    del programa, que se puede descargar <a
+							    href='datos/univs-is.R'>de
+		      aquí</a>; también se puede
+		    consultar la historia de R, es
+		    decir las pruebas, los datos y el resto de los comandos
+		    ejecutados. Recordad, todo software libre. En
+		    cualquier caso, si no entendéis
+		    del tema no tenéis que
+		    preocuparos: está escrito en un
+		    lenguaje llamado R, que es un
+		    lenguaje que os vais a encontrar
+		    una y otra vez cuando se habla de
+		    ciencia de datos y de big
+		    data. La idea es que los APIs o
+		    interfaces de programación
+		    <em>publican</em> los datos en un
+		    formato estándar, que se pueden
+		    usar desde cualquier lenguaje de
+		    programación, en particular este
+		    R. </aside>
+		</section>
+	      </section>
 
-				<section>
+	      <section>
 				  
-				  <section
+		<section
 				    data-background='https://farm8.staticflickr.com/7467/15897351745_ccc1232f4e_h_d.jpg'
 				     title='Rascando/scraping'>
 				    <aside class='notes'>Pero no todo
