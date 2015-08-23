@@ -42,7 +42,8 @@
 	    <div class="slides">
 	      <section data-background='https://farm6.staticflickr.com/5567/14778479881_3bb955bfc5_b_d.jpg' title='Apis, the ox-god'>
 		<h1 class='img'>Grab the API</h1>
-		<p>Los denominados
+
+		<aside class='notes'><p>Los denominados
 		  APIs, o interfaces de programación de
 		  aplicaciones (<em>application
 		    programming interface</em>), permiten extraer
@@ -70,12 +71,12 @@
 		  que se usa, por excelencia, para
 		  trabajar con los datos. Lo veremos
 		  más adelante.</p>
-</aside>
+		</aside>
 
-</section>
-				  
-				  <section>
-				    <img src='img/UMH-vs-UA-wikipedia.png' alt='Visitas a la página de la wikipedia'>
+	      </section>
+	      
+	      <section>
+		<img src='img/UMH-vs-UA-wikipedia.png' alt='Wikipedia visits HR vs  HI'>
 				    <aside class='notes'><p>Por ejemplo,
 				    usando un API muy simple de la
 				    Wikipedia se pueden descargar las
@@ -102,25 +103,27 @@
 				  </section>
 				  
 				  <section>
-				    <pre><code>for (year in (2010:2014)) {
-    for (month in (1:12)) {
-        theURL <- "http://stats.grok.se/json/es/"
-        theURL <- paste0(theURL, year) # Adapta cosas        
-        theURL <- paste0(theURL, month) 
-        theURL.ugr <- paste0(theURL, "/Universidad_Miguel_Hernández")
-        rawData.ugr <- getURL(theURL.ugr)
-        data.UMH <- fromJSON(rawData.ugr)
-        df.UMH <- data.frame(Date=names(data.UMH$daily_views),Views=data.UMH$daily_views)
-        df.UMH <-  df.UMH[df.UMH$Views > 0,]
-        df.UMH$Date <- as.Date(df.UMH$Date)
-        alldata.UMH <- rbind( alldata.UMH, df.UMH )
+				    <pre><code>library(RCurl)
+library(RJSONIO) #more stuff
+for (year in (2010:2014)) {
+    for (month in (1:12)) {        
+        theURL <- "http://stats.grok.se/json/is/"
+        theURL <- paste0(theURL, year)        
+        theURL <- paste0(theURL, month) # Some month magic here 
+        theURL.HI <- paste0(theURL, "/Háskóli_Íslands")
+        rawData.HI <- getURL(theURL.HI)
+        data.HI <- fromJSON(rawData.HI)
+        df.HI <- data.frame(Date=names(data.HI$daily_views),Views=data.HI$daily_views)
+        df.HI <-  df.HI[df.HI$Views > 0,]
+        df.HI$Date <- as.Date(df.HI$Date)
+        alldata.HI <- rbind( alldata.HI, df.HI ) # And more
     }
 }
-alldata.UA <- alldata.UA[order(alldata.UA$Date),]</code></pre>
+</code></pre>
 
 				    <aside class='notes'>Es sólo parte
-        del programa, que se puede descargar <a
-				      href='datos/univs.R'>de
+				      del programa, que se puede descargar <a
+									      href='datos/univs-is.R'>de
 				    aquí</a>; también se puede
 				    consultar la historia de R, es
         decir las pruebas, los datos y el resto de los comandos
@@ -264,12 +267,12 @@ say join("\n",map($i++.";".$_, @pesos ));</code></pre>
 				  </section>
 
 				<section style="text-align: left;">
-					<h1>¿Alguna pregunta?</h1>
+					<h1>Questions?</h1>
 				</section>
 
 				 <section>
 				   <section>
-				     <h2>Créditos</h2>
+				     <h2>Image credits</h2>
 				     
 				     <ol>
 				 	       
