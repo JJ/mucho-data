@@ -32,4 +32,4 @@ for my $p ( @$classification_data ) {
     $classification{$team}->{$d} = $rows->[$data{$d}]->text();
   }
 }
-say to_json ( \%classification );
+say to_json  \%classification ;

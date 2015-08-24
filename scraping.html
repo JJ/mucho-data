@@ -174,70 +174,55 @@ for (year in (2010:2014)) {
 		  </aside>
 		</section>
 
-				  <section>
-				    <h2>¿Cuánto pesa el Elche CF?</h2>
-				    <img src='img/pesos-elche.png'
-				    alt='pesos de los jugadores del
-				    Elche'>
+		<section>
+		  <h2>Pepsi-Deildin table</h2>
+		  <img src='img/pepsi-deildin-table.png'
+		       alt='Classification'>
+		  
+		  <aside class='notes'>Data on the web usually
+		  appears in tables; in that case, it's quite easy to
+		  capture it (in fact, you can do it via copy/paste).</aside>
+		</section>
+		
+		<section>
+		  <pre><code>my $url = "http://www.ksi.is/mot/motalisti/urslit-stada/?MotNumer=33503";
 
-				    <aside class='notes'>Los pesos se
-				    han extraído de la página oficial
-				    del Elche y no ha sido nada fácil,
-				    la transparencia más complicada
-				      (después de la del
-				    paté; al menos en este no tuve que
-				    ir al Mercadona y de camino
-				    comprar plátanos). El más delgado es Víctor,
-				    un medio, y el más gordo Tyton,
-				    uno de los porteros. E igual
-				    sería interesante ver qué ocurre
-				    con el resto de los equipos y
-				    cómo se distribuyen los pesos
-				    según la posición.</aside>
+my $dom = Mojo::DOM->new( get $url );
+
+my $classification_data =  $dom->find("table#stodu-tafla tr");
+
+my %classification;
+
+shift @$classification_data; # off with the headers
+
+my %data = ( u => 3,
+	     j => 4,
+	     t => 5,
+	     net => 7,
+	     stig => 8 );
+</code></pre>
+
+				    <aside class='notes'>This program
+				    uses Perl, which is excellent for
+				    many different reasons, including
+				    the availability of libraries for
+				      scraping. We're
+				    using <code>Mojo::DOM</code> here.</aside>
 				  </section>
 
-				  <section>
-				    <pre><code>my $url = "http://www.elchecf.es/plantilla";
-my $dom = Mojo::DOM->new( get $url );
-my $jugadores =  $dom->find("div.titulo_datos_comunes");
-my @pesos;
-for my $p ( @$jugadores ) {
-  if ( $p->content() =~ /Peso/ ) {
-    my $peso;
-    if ( $p->content() =~ /div/ ) {
-      ($peso) = ( $p->content() =~ /o: (\d+)/ );
-    } else {
-      ($peso) = ( $p->content() =~ /(\d+)/ );
-    }
-    push @pesos, $peso;
+				<section><pre><code>
+for my $p ( @$classification_data ) {
+  my $rows = $p->find( "td" );
+  my $team = $rows->[1]->all_text();
+  $classification{$team} = {}; 
+  for my $d ( keys %data ) {
+    $classification{$team}->{$d} = $rows->[$data{$d}]->text();
   }
 }
-say("Indice;Peso");
-my $i = 1;
-say join("\n",map($i++.";".$_, @pesos ));</code></pre>
+say to_json  \%classification ;</code></pre>
 
-				    <aside class='notes'>Seguro que la
-				    mayoría no entiende nada. Si no
-				    entendéis nada, no miréis. Si R es
-				    complicado, este lenguaje, llamado
-				    Perl, ya es la leche. ¿Alguien lo
-				    ha usado? Pues debería, porque
-				      hacer esto, <em>rascar</em>
-				      información de una página es
-				    <em>relativamente</em> (muy
-				    relativamente, de hecho),
-				    simple. También se puede hacer en
-				    R, por cierto, pero no es tan
-				    fácil (o si lo es, no tengo ni
-				    idea de cómo hacerlo; cada uno usa
-				    las herramientas que le resultan
-				    más familiares). Perl es software
-				    libre y todas las librerías, o
-				    colecciones de procedimientos para
-				    hacer este tipo de cosas, son
-				    también software libre.</aside>
-				  </section>
-
+<aside class='notes'>This navigates the table to extract info from it</aside>
+</section>
 				  <section>
 				    <h1>Scraping where it itches</h1>
 				    <aside class='notes'>Hay
