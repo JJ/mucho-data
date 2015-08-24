@@ -24,12 +24,19 @@ my %data = ( u => 3,
 	     net => 7,
 	     stig => 8 );
 
+open my $fh, ">pepsi-deildin.csv";
+say $fh "Team,",join(",",keys %data );
 for my $p ( @$classification_data ) {
   my $rows = $p->find( "td" );
   my $team = $rows->[1]->all_text();
+  print $fh $team;
   $classification{$team} = {}; 
   for my $d ( keys %data ) {
     $classification{$team}->{$d} = $rows->[$data{$d}]->text();
+    print $fh ",$classification{$team}->{$d}";
   }
+  print $fh "\n";
 }
+close $fh;
 say to_json  \%classification ;
+
