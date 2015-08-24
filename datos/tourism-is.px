@@ -1,0 +1,51 @@
+CHARSET="ANSI";
+AXIS-VERSION="2000";
+LANGUAGE="EN";
+CREATION-DATE="20150813 10:46";
+DECIMALS=1;
+SHOWDECIMALS=0;
+MATRIX="SAM08005";
+SUBJECT-AREA="Tourism";
+SUBJECT-CODE="SAM08";
+DESCRIPTION="Number of trips and overnight by forms of tourism and classes of "
+"visitors, 2009-2013                   ";
+TITLE="Number of trips and overnight by forms of tourism and classes of "
+"visitors, 2009-2013                   ";
+CONTENTS="Number of trips and overnights, 2009-2013";
+DESCRIPTIONDEFAULT=YES;
+UNITS="Trips or overnights";
+STUB="Activity";
+HEADING="Type of visitors","Year","Type of tourism";
+VALUES("Activity")="Number of trips","Number of overnights**";
+VALUES("Type of visitors")="Visitors, Total";
+VALUES("Year")="2009","2010","2011","2012","2013";
+VALUES("Type of tourism")="Inbound tourism","Domestic tourism";
+LAST-UPDATED="20150820";
+CONTACT="Böðvar Þórisson                   ";
+COPYRIGHT=YES;
+REFPERIOD="2009-2013";
+NOTE="Value is shown at current prices in ISK millions.        #"
+"- Insignificant and/or negligible in the case of Iceland      #"
+"** For inbound and domestic tourism only overnights registered in "
+"accommodation establishments     #"
+". Not applicable     #"
+"... Data not available     #"
+" #"
+"For inbound tourism, total visitors are equal to total arrivals. #"
+"For outbond tourism, total visitors are equal to total departures  #"
+"     #"
+"Data on cruise ship arrivals were provided by the Icelandic Tourism "
+"Research Centre while the rest of the data are produced by the "
+"Icelandic Tourist Board, excepting the data on overnights which are "
+"produced by Statistics Iceland     ";
+DATA=
+651324.0 "..." 
+652465.0 "..." 
+717882.0 "..." 
+885004.0 "..." 
+1034169.0 "..." 
+2134245.0 870384.0 
+2144318.0 854707.0 
+2444245.0 804715.0 
+2898011.0 853502.0 
+3521824.0 1024559.0;
