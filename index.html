@@ -64,7 +64,7 @@
 				data-background='img/viaje-datos.jpg'
 				alt='autobús NY'>
 				  <aside class='notes'>Mucho data es
-				un viaje data, que es como decimos los granaínos, como la alcaldesa de Elche, por ejemplo. Como en el
+				un viaje data, que es como decimos los granaínos. Como en el
 				chiste. "¿Quieres un viaje a Túnez?"
 				    "¿Para qué quiero yo tanto
 				pescado?"</aside>
@@ -159,7 +159,7 @@
 				  ¿qué genera tantos datos?</aside>
 				</section>
 				
-				<section data-background='img/los-de-elche.png'
+				<section data-background='img/colombia-no-es.png'
 				  alt='buscando'>
 				  <aside class='notes'>Cada vez que
 				  buscamos se está generando un dato
@@ -198,7 +198,9 @@
 				</section>
 
 				<section>
-				  <section data-background='img/la-piara.jpg' title='Paté la Piara, más bueno que el pan. Que no he encontrado el Apis'>
+				  <section
+				  data-background='img/el-primo-de-apis.jpg'
+				  title='Primo japonés de Apis'>
 				    <aside class='notes'>
 				      <p>Aquí tenía que venir una
 					transpa de APIs, el paté, ya sabéis,
@@ -274,15 +276,14 @@
 				  </section>
 				  
 				  <section>
-				    <img src='img/UMH-vs-UA-wikipedia.png' alt='Visitas a la página de la wikipedia'>
+				    <img src='img/cun-vs-un-co.png' alt='Visitas a la página de la wikipedia'>
 				    <aside class='notes'><p>Por ejemplo,
 				    usando un API muy simple de la
 				    Wikipedia se pueden descargar las
 				    visitas a las páginas día a
 				    día. Aquí las visitas a la página
-				    de la Universidad de Alicante y la
-				      de la Miguel Hernández, por
-				      ejemplo.</p>
+				    de la corporación universitaria
+				    nacional y de la universidad nacional.</p>
 
 				    <p>De hecho, la Wikipedia da
 				  acceso a <a
@@ -293,7 +294,9 @@
 				  sé si va por la dos o la tres o ya
 				  ni siquiera se llama web): se crean
 				  plataformas, no sólo sitios con
-				  contenido. También es un signo de
+				  contenido, y las páginas son fuentes
+				  de datos sin estructura a los que
+				  también se puede acceder mediante APIs. También es un signo de
 				  transparencia: por eso se puede
 				  acceder de esa forma a los datos de
 				  la Wikipedia (y no tanto a los de
@@ -301,25 +304,20 @@
 				  </section>
 				  
 				  <section>
-				    <pre><code>for (year in (2010:2014)) {
-    for (month in (1:12)) {
-        theURL <- "http://stats.grok.se/json/es/"
-        theURL <- paste0(theURL, year) # Adapta cosas        
-        theURL <- paste0(theURL, month) 
-        theURL.ugr <- paste0(theURL, "/Universidad_Miguel_Hernández")
-        rawData.ugr <- getURL(theURL.ugr)
-        data.UMH <- fromJSON(rawData.ugr)
-        df.UMH <- data.frame(Date=names(data.UMH$daily_views),Views=data.UMH$daily_views)
-        df.UMH <-  df.UMH[df.UMH$Views > 0,]
-        df.UMH$Date <- as.Date(df.UMH$Date)
-        alldata.UMH <- rbind( alldata.UMH, df.UMH )
-    }
-}
-alldata.UA <- alldata.UA[order(alldata.UA$Date),]</code></pre>
+				    <pre><code>rawData.us <- getURL("https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/es.wikipedia/all-access/all-agents/Corporaci%C3%B3n_Unificada_Nacional_de_Educaci%C3%B3n_Superior/monthly/2015100100/201810100")
+
+data.CUN <- fromJSON(rawData.us)
+df.CUN <- data.frame(matrix(unlist(data.CUN),nrow=36, byrow=T))
+df.CUN$Views <-   as.numeric(levels(df.CUN$X7))[df.CUN$X7]
+df.CUN$Date <-  as.Date(df.CUN$X4,"%Y%m%d00")
+
+ggplot(data=df.CUN,aes(x=Date,y=Views,group=1,col='CUN'))+geom_line()+geom_line(data=df.UN,aes(x=Date,y=Views,group=1,col='UN'))
+
+</code></pre>
 
 				    <aside class='notes'>Es sólo parte
         del programa, que se puede descargar <a
-				      href='datos/univs.R'>de
+				      href='datos/univs-co.R'>de
 				    aquí</a>; también se puede
 				    consultar la historia de R, es
         decir las pruebas, los datos y el resto de los comandos
@@ -356,46 +354,37 @@ alldata.UA <- alldata.UA[order(alldata.UA$Date),]</code></pre>
 				  </section>
 
 				  <section>
-				    <h2>¿Cuánto pesa el Elche CF?</h2>
-				    <img src='img/pesos-elche.png'
-				    alt='pesos de los jugadores del
-				    Elche'>
+				    <h2>¿Cuánto mide el Millonarios?</h2>
+				    <img src='img/millonarios-altura.png'
+				    alt='Altura de los jugadores del
+				    Millonarios'>
 
 				    <aside class='notes'>Los pesos se
 				    han extraído de la página oficial
-				    del Elche y no ha sido nada fácil,
+				    del Millonarios y no ha sido nada
+				    fácil, y de hecho faltan bstantes
 				    la transparencia más complicada
 				      (después de la del
 				    paté; al menos en este no tuve que
 				    ir al Mercadona y de camino
-				    comprar plátanos). El más delgado es Víctor,
-				    un medio, y el más gordo Tyton,
-				    uno de los porteros. E igual
-				    sería interesante ver qué ocurre
-				    con el resto de los equipos y
-				    cómo se distribuyen los pesos
-				    según la posición.</aside>
+				    comprar plátanos). Además, lo
+				    hemos ilustrado con la posición
+				    que ocupan.</aside>
 				  </section>
 
 				  <section>
-				    <pre><code>my $url = "http://www.elchecf.es/plantilla";
+				    <pre><code>my $url = "http://www.millonarios.com.co/team";
+
 my $dom = Mojo::DOM->new( get $url );
-my $jugadores =  $dom->find("div.titulo_datos_comunes");
 my @pesos;
-for my $p ( @$jugadores ) {
-  if ( $p->content() =~ /Peso/ ) {
-    my $peso;
-    if ( $p->content() =~ /div/ ) {
-      ($peso) = ( $p->content() =~ /o: (\d+)/ );
-    } else {
-      ($peso) = ( $p->content() =~ /(\d+)/ );
-    }
-    push @pesos, $peso;
-  }
-}
-say("Indice;Peso");
-my $i = 1;
-say join("\n",map($i++.";".$_, @pesos ));</code></pre>
+my $players = $dom->find("select#player option[value]");
+# ...
+    my $this_dom = Mojo::DOM->new( get "http://www.millonarios.com.co/".$p->val );
+    my $jugador = $this_dom->at("div.sombra-detalle");
+    my $nombre = $jugador->find("strong")->map("text")->join( " " );
+    my $data = $jugador->find("p")->map("text");
+    my ($posicion) = ($data->[0] =~ /(\w+),/);
+    my ($peso) = ($data->[3] =~ /(\d+)/);</code></pre>
 
 				    <aside class='notes'>Seguro que la
 				    mayoría no entiende nada. Si no
