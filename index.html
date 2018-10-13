@@ -1,76 +1,57 @@
 <!doctype html>
-<html lang="en">
-
+<html>
 	<head>
-		<meta charset="utf-8">
-
-		<title>Mucho data</title>
-
-		<meta name="description" content="Big data, presentación para Open E2 Arena + IEEE Developer Days">
-		<meta name="author" content="JJ Merelo">
-
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/league.css" id="theme">
-
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+          
+          
+          <meta name="description" content="Big data, presentación para Open E2 Arena + IEEE Developer Days">
+          <meta name="author" content="JJ Merelo">
+          
+	  <link rel="stylesheet" href="css/reveal.css">
+	  <link rel="stylesheet" href="css/theme/league.css">
+          
+	  <!-- Theme used for syntax highlighting of code -->
+	  <link rel="stylesheet" href="lib/css/zenburn.css">
+          
+	  <!-- Printing and PDF exports -->
+	  <script>
+	   var link = document.createElement( 'link' );
+	   link.rel = 'stylesheet';
+	   link.type = 'text/css';
+	   link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+	   document.getElementsByTagName( 'head' )[0].appendChild( link );
+	  </script>
 	</head>
-
 	<body>
-
 		<div class="reveal">
+		  <div class="slides">
+                    	<section>
+	  <h1>Mucho Data</h1>
+	  <h3>Cuando los datos crecen</h3>
+	  <p>Por <a
+	    href="http://jj.github.io">JJ Merelo</a> / <a
+	    href="http://twitter.com/jjmerelo"><code>@jjmerelo</code></a></p>
+          
+	  <aside class='notes'>Los datos, en general, son una de las
+	palabras clave de la tecnología; trabajar con datos es no sólo
+	una profesión, sino que empieza a afectar prácticamente a cada
+	una de las demás profesiones que tienen que ver con la
+	informática. Por ejemplo, los bancos empiezan a convertirse en
+	empresas que manejan datos y, además, prestan o almacenan dinero.</aside>
+	</section>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Mucho Data</h1>
-					<h3>Cuando los datos crecen</h3>
-					<p>Por <a
-			href="http://jj.github.io">JJ Merelo</a> / <a
-			href="http://twitter.com/jjmerelo"><code>@jjmerelo</code></a></p>
-
-					<aside class='notes'>En el
-				programa decía que iba a hablar de
-				software libre también. Pero es que,
-				como leí hace un par de dias en Twitter <a
-				href='http://osdelivers.blackducksoftware.com/2015/05/13/the-open-source-default/#.VVRm3BPP9es.twitter'>hoy
-				en día el software libre ha crecido 
-					    hasta tal punto que es la
-				opción por omisión</a> en muchos casos (salvo, quizás, consumo). En general,
-				todas las herramientas que voy a
-				comentar son libres; si alguna no lo
-					  es, lo diré explícitamente.</aside>
-				</section>
-
-				<section
+	<section
 				data-background='img/viaje-datos.jpg'
 				alt='autobús NY'>
 				  <aside class='notes'>Mucho data es
-				un viaje data, que es como decimos los granaínos. Como en el
+				un viaje datos, que es como decimos los granaínos. Como en el
 				chiste. "¿Quieres un viaje a Túnez?"
 				    "¿Para qué quiero yo tanto
-				pescado?"</aside>
-				</section>
+				    pescado?"</aside>
+	</section>
 
-				<section data-background='https://johnnymackintosh.files.wordpress.com/2011/08/asimov-foundation-covers-cropped.jpg' title='Trilogía de la fundación'>
+	<section data-background='https://johnnymackintosh.files.wordpress.com/2011/08/asimov-foundation-covers-cropped.jpg' title='Trilogía de la fundación'>
 				  
 				  <aside class='notes'>La <a
 				href='http://en.wikipedia.org/wiki/Psychohistory_%28fictional%29'>Psicohistoria</a>
@@ -81,7 +62,7 @@
 				    predicha, incluso con mucha
 				antelación. Pero podía haber ciertas
 				desviaciones, como por ejemplo... </aside>
-				</section>
+	</section>
 
 				<section data-background='http://sparkleberrysprings.com/v-web/b2/images/entertainment/asimovmule.jpg' title="El mulo">
 				  <aside class='notes'>El Mulo no se
@@ -199,7 +180,7 @@
 
 				<section>
 				  <section
-				  data-background='img/el-primo-de-apis.jpg'
+				  data-background='img/el-primo-de-apis.png'
 				  title='Primo japonés de Apis'>
 				    <aside class='notes'>
 				      <p>Aquí tenía que venir una
@@ -355,7 +336,7 @@ ggplot(data=df.CUN,aes(x=Date,y=Views,group=1,col='CUN'))+geom_line()+geom_line(
 
 				  <section>
 				    <h2>¿Cuánto mide el Millonarios?</h2>
-				    <img src='img/millonarios-altura.png'
+				    <img src='img/millonarios-alturas.png'
 				    alt='Altura de los jugadores del
 				    Millonarios'>
 
@@ -893,37 +874,30 @@ my $players = $dom->find("select#player option[value]");
 				     de campamento de Jerry Kirkhart</a></li>
 				   
 				 </section>
-			</div>
 
+                                 
+		  </div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
 		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+		 Reveal.initialize({
+                  controls: true,
+		  progress: true,
+		  history: true,
+		  center: true,
+		  transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
-
+		 dependencies: [
+		   { src: 'plugin/notes/notes.js', async: true },
+		   { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+		 ]
+		 });
 		</script>
-
 	</body>
 </html>
