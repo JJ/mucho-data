@@ -9,6 +9,7 @@
           <meta name="author" content="JJ Merelo">
           
 	  <link rel="stylesheet" href="css/reveal.css">
+          <link rel="stylesheet" href="css/extra.css">
 	  <link rel="stylesheet" href="css/theme/league.css">
           
 	  <!-- Theme used for syntax highlighting of code -->
@@ -183,7 +184,8 @@
 				  data-background='img/el-primo-de-apis.png'
 				  title='Primo japonés de Apis'>
 				    <aside class='notes'>
-				      <p>Aquí tenía que venir una
+				      <p>Los datos se obtienen de las
+				  APIs. Aquí tenía que venir una
 					transpa de APIs, el paté, ya sabéis,
 					Apis, Papis. Era lo que iba buscando
 					pero me encontré una historia que,
@@ -367,8 +369,10 @@ my $players = $dom->find("select#player option[value]");
     my ($posicion) = ($data->[0] =~ /(\w+),/);
     my ($peso) = ($data->[3] =~ /(\d+)/);</code></pre>
 
-				    <aside class='notes'>Seguro que la
-				    mayoría no entiende nada. Si no
+				    <aside class='notes'>No hace falta
+				    que se entienda todo el programa,
+				    pero sí la idea general: cómo
+				    obtener datos de cualquier fuente. Si no
 				    entendéis nada, no miréis. Si R es
 				    complicado, este lenguaje, llamado
 				    Perl, ya es la leche. ¿Alguien lo
@@ -428,7 +432,8 @@ my $players = $dom->find("select#player option[value]");
 				  diferentes conjuntos de datos
 				  automáticamente e incluso un sitio,
 				    <a
-				  href='http://morph.io'><code>morph.io</code></a>
+				  href='http://morph.io' alt='take the
+				  hassle out of web scraping'><code>morph.io</code></a>
 				  para almacenar procedimientos de
 				  scrapeado y ejecutarlos
 				  automáticamente; todo ello en
@@ -480,7 +485,10 @@ my $players = $dom->find("select#player option[value]");
 				  extraer. En resumen: el reto en los
 				  datos, en muchas ocasiones y sobre
 				  todo en el periodismo de datos, es
-				    poder extraerlos.</aside>
+				    poder extraerlos. En algunos
+				  casos, se cometen faltas de
+				  ortografía para que no se encuentren
+				  en Google los datos que se buscan.</aside>
 				  </aside>
 				</section>
 
@@ -496,7 +504,7 @@ my $players = $dom->find("select#player option[value]");
 				</section>
 
 				<section
-				data-background='img/paro-elche.png'>
+				data-background='img/wifi-gratis.png'>
 				  <aside class='notes'>Lo primero es
 				visualizarlos. Por ejemplo, <a
 				href='http://espanaencifras.elespanol.com/?utm_content=bufferee543&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer#home_maps'>estos
@@ -511,12 +519,24 @@ my $players = $dom->find("select#player option[value]");
 				subir datos geolocalizados (o
 				geolocalizarlos fácilmente) y
 				representar de decenas de formas
-				diferentes sobre mapas de todo tipo. </aside>
+				diferentes sobre mapas de todo
+				tipo. En esta versión los datos de
+				Colombia son de <a
+				href='https://colombiacheck.com/datos/especiales/las-cifras-de-las-zonas-wifi-gratis.html'>Colombiacheck</a>,
+				una excelente web de análisis de datos.
+                                  </aside>
 				</section>
 
 				<section>
-				  <section data-background='img/presupuestos-cv.png'>
-				    <aside class='notes'>En <a
+				  <section data-background='img/lluvia-colombia.png'>
+				    <aside class='notes'>El <a
+				  href='http://dataviz.vam.wfp.org/Agroclimatic_Charts'>World
+				  Food Program tiene una serie de
+				      herramientas de visualización</a> que se
+				  pueden usar fácilmente; en este caso
+				  la lluvia en Colombia.
+
+                                      En <a
 				      href='http://www.dondevanmisimpuestos.es/ccaa/'>Donde
 				      Van mis Impuestos</a> visualizan
 				      los impuestos de las comunidades
@@ -549,7 +569,12 @@ my $players = $dom->find("select#player option[value]");
 				      y otra como <a
 				  href='http://graphext.com/'>Graphext</a>,
 				  creada hace poco por un granadino y
-				      afincada en Alicante.</aside>
+				      afincada en Alicante. Este tipo
+				    de diagrama se llama Sankey o
+				    River, y fue creado originalmente
+				    para visualizar las bajas del
+				    ejército de Napoleón durante su
+				    invasión de Rusia.</aside>
 				  </section>
 
 				</section>
@@ -730,6 +755,24 @@ my $players = $dom->find("select#player option[value]");
 				    al científico de datos.</aside>
 				  </section>
 
+                                  <section
+                                  data-background='https://farm2.staticflickr.com/1949/44988904472_385fb43e80_k_d.jpg'
+                                  alt='spark'>
+                                    <h1>Spark+Scala</h1>
+                                    <aside class='notes'><a
+                                  href='https://en.wikipedia.org/wiki/Apache_Spark'>Spark
+                                      forma parte de la fundación
+                                  Apache</a>, y permite trabajar con
+                                  datos distribuidos usando un
+                                      paradigma de memoria
+                                  compartida. Scala es su lenguaje
+                                  original, pero puede usarse también
+                                  con Python, R y Java. Las últimas
+                                  versiones, Spark Streaming, permiten
+                                  trabajar directamente con torrentes
+                                  de datos.</aside>
+                                  </section>
+
 				</section>
 
 				<section data-background='img/machine-learning.jpg'>
@@ -747,7 +790,10 @@ my $players = $dom->find("select#player option[value]");
 				    funciona sobre Spark</a> y tiene
 				  todo tipo de algoritmos de
 				  clustering, clasificación y de
-				    filtrado colaborativo. Y todo esto, ¿para qué sirve?</aside>
+				    filtrado colaborativo. Y todo
+				  esto, ¿para qué sirve? También
+				  MLlib, que funciona sobre Spark Core.
+				 </aside>
 				</section>
 
 				<section>
@@ -771,7 +817,12 @@ my $players = $dom->find("select#player option[value]");
 				    <aside class='notes'>Por ejemplo,
 				    ¿qué tipo de zapatos va a pedir la
 				    gente? ¿Sandalias? ¿Chanclas?
-				    ¿Náuticos?
+				    ¿Náuticos? En nuestro trabajo <a
+				      href='http://www.soc.napier.ac.uk/~40000408/ppsn/papers/Merelo-ppsn-workshop-nowcasting.pdf'>nowcasting
+				    traffic</a>, tratamos de predecir
+				    los vehículos que pasan
+				    efectivamente frente a los que
+				      detectan nuestros sensores de bluetooth
 				    </aside>
 				  </section>
 
@@ -798,7 +849,7 @@ my $players = $dom->find("select#player option[value]");
 
 				<section>
 				  <h2>Hay <em>mucho data</em></h2>
-				  <h1 class='fragment'>Pongamos
+				  <h1 class='fragment'>Escribamos
 				    nosotros la historia</h1>
 
 				  <aside class='notes'>La
@@ -817,62 +868,56 @@ my $players = $dom->find("select#player option[value]");
 				   <section>
 				     <h2>Créditos</h2>
 				     
-				     <ol>
-				       <li class='credits'>Imagen del
+				     <ol class='credits'>
+				       <li>Imagen del
 					 bus modificada de <a
 					 href='https://www.flickr.com/photos/mtaphotos/10004448523/'>MTA photos</a></li>
-				       <li class='credits'>Imagen de la Fundación del <a href='http://johnnymackintosh.com/2011/08/23/influences-on-johnny-mackintosh-isaac-asimov/'>blog de Johnny Mackintosh</a></li>
-				       <li class='credits'>Imagen del mulo de <a href='http://www.jacurutu.com/viewtopic.php?f=21&t=3213'>un foro</a></li>
-				       <li class='credits'>Imagen de
+				       <li>Imagen de la Fundación del <a href='http://johnnymackintosh.com/2011/08/23/influences-on-johnny-mackintosh-isaac-asimov/'>blog de Johnny Mackintosh</a></li>
+				       <li>Imagen del mulo de <a href='http://www.jacurutu.com/viewtopic.php?f=21&t=3213'>un foro</a></li>
+				       <li>Imagen de
 					 gente con móviles
 					 de <a href='https://www.flickr.com/photos/kk/6863172432/'>Kris
 					 Krüg</a></li>
-				       <li class='credits'>Imagen de
+				       <li>Imagen de
 					 fila de sillas
 					 por <a href='https://www.flickr.com/photos/2_funky/4999986578/'>2 funky</a></li>
-				       <li class='credits'>Uves
+				       <li>Uves
 					 de <a href='https://www.flickr.com/photos/ancienthistory/11244652695/'>ancient history</a></li>
 				       
-				       <li class='credits'>Hulk
+				       <li>Hulk
 					 de <a
 					 href='https://www.flickr.com/photos/clement127/11672279656/'>Clement127</a></li>
 				       
-				       <li class='credits'>Zarpa de oso de
+				       <li>Zarpa de oso de
 					 <a
 					   href='https://www.flickr.com/photos/ucumari/15897351745/'>Valerie</a></li>
-				       
-				   
-
-				     </ol>
-				   </section>
-				   <section>  <h2>Créditos II</h2>
-				     
-				     <ol>
-
-				           <li class='credits'>Números de <a
+				       <li>Números de <a
 					 href='https://www.flickr.com/photos/andymag/9825503886/'>Andi
 					 Maguire</a></li>
 
-				   <li class='credits'><a
+				   <li><a
 				 href='https://www.flickr.com/photos/stuartpilbrow/3206624177/'>Números
 				     de Perdidos por
 				 StuartPilbrow</a></li>
 
-				   <li class='credits'><a
+				   <li><a
 				 href='https://www.flickr.com/photos/bocadorada/283959170/'>Tuppers
 				     de Boca Dorada</a></li>
 
-				   <li class='credits'><a
+				   <li><a
 				     href='https://www.flickr.com/photos/hamed/1403196887/'>Torrente
 				     por Hamed Saber</a></li>
 				   
-				   <li class='credits'><a
+				   <li><a
 				     href='https://www.flickr.com/photos/george/3047558085/'>Mapa
 				     doblado de George Oates</a></li>
-				   <li class='credits'><a
+				   <li><a
 				     href='https://www.flickr.com/photos/jkirkhart35/4984385396/'>Fuego
 				     de campamento de Jerry Kirkhart</a></li>
-				   
+				   <li><a
+				     href='https://flic.kr/p/2bxvTUL'>Bengala
+				     de John Jones</a></li>
+                                     </ol>
 				 </section>
 
                                  
