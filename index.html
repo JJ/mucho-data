@@ -1,76 +1,58 @@
 <!doctype html>
-<html lang="en">
-
+<html>
 	<head>
-		<meta charset="utf-8">
-
-		<title>Mucho data</title>
-
-		<meta name="description" content="Big data, presentación para Open E2 Arena + IEEE Developer Days">
-		<meta name="author" content="JJ Merelo">
-
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/league.css" id="theme">
-
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+          
+          
+          <meta name="description" content="Big data, presentación para Open E2 Arena + IEEE Developer Days">
+          <meta name="author" content="JJ Merelo">
+          
+	  <link rel="stylesheet" href="css/reveal.css">
+          <link rel="stylesheet" href="css/extra.css">
+	  <link rel="stylesheet" href="css/theme/league.css">
+          
+	  <!-- Theme used for syntax highlighting of code -->
+	  <link rel="stylesheet" href="lib/css/zenburn.css">
+          
+	  <!-- Printing and PDF exports -->
+	  <script>
+	   var link = document.createElement( 'link' );
+	   link.rel = 'stylesheet';
+	   link.type = 'text/css';
+	   link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+	   document.getElementsByTagName( 'head' )[0].appendChild( link );
+	  </script>
 	</head>
-
 	<body>
-
 		<div class="reveal">
+		  <div class="slides">
+                    	<section>
+	  <h1>Mucho Data</h1>
+	  <h3>Cuando los datos crecen</h3>
+	  <p>Por <a
+	    href="http://jj.github.io">JJ Merelo</a> / <a
+	    href="http://twitter.com/jjmerelo"><code>@jjmerelo</code></a></p>
+          
+	  <aside class='notes'>Los datos, en general, son una de las
+	palabras clave de la tecnología; trabajar con datos es no sólo
+	una profesión, sino que empieza a afectar prácticamente a cada
+	una de las demás profesiones que tienen que ver con la
+	informática. Por ejemplo, los bancos empiezan a convertirse en
+	empresas que manejan datos y, además, prestan o almacenan dinero.</aside>
+	</section>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Mucho Data</h1>
-					<h3>Cuando los datos crecen</h3>
-					<p>Por <a
-			href="http://jj.github.io">JJ Merelo</a> / <a
-			href="http://twitter.com/jjmerelo"><code>@jjmerelo</code></a></p>
-
-					<aside class='notes'>En el
-				programa decía que iba a hablar de
-				software libre también. Pero es que,
-				como leí hace un par de dias en Twitter <a
-				href='http://osdelivers.blackducksoftware.com/2015/05/13/the-open-source-default/#.VVRm3BPP9es.twitter'>hoy
-				en día el software libre ha crecido 
-					    hasta tal punto que es la
-				opción por omisión</a> en muchos casos (salvo, quizás, consumo). En general,
-				todas las herramientas que voy a
-				comentar son libres; si alguna no lo
-					  es, lo diré explícitamente.</aside>
-				</section>
-
-				<section
+	<section
 				data-background='img/viaje-datos.jpg'
 				alt='autobús NY'>
 				  <aside class='notes'>Mucho data es
-				un viaje data, que es como decimos los granaínos, como la alcaldesa de Elche, por ejemplo. Como en el
+				un viaje datos, que es como decimos los granaínos. Como en el
 				chiste. "¿Quieres un viaje a Túnez?"
 				    "¿Para qué quiero yo tanto
-				pescado?"</aside>
-				</section>
+				    pescado?"</aside>
+	</section>
 
-				<section data-background='https://johnnymackintosh.files.wordpress.com/2011/08/asimov-foundation-covers-cropped.jpg' title='Trilogía de la fundación'>
+	<section data-background='https://johnnymackintosh.files.wordpress.com/2011/08/asimov-foundation-covers-cropped.jpg' title='Trilogía de la fundación'>
 				  
 				  <aside class='notes'>La <a
 				href='http://en.wikipedia.org/wiki/Psychohistory_%28fictional%29'>Psicohistoria</a>
@@ -81,7 +63,7 @@
 				    predicha, incluso con mucha
 				antelación. Pero podía haber ciertas
 				desviaciones, como por ejemplo... </aside>
-				</section>
+	</section>
 
 				<section data-background='http://sparkleberrysprings.com/v-web/b2/images/entertainment/asimovmule.jpg' title="El mulo">
 				  <aside class='notes'>El Mulo no se
@@ -159,7 +141,7 @@
 				  ¿qué genera tantos datos?</aside>
 				</section>
 				
-				<section data-background='img/los-de-elche.png'
+				<section data-background='img/colombia-no-es.png'
 				  alt='buscando'>
 				  <aside class='notes'>Cada vez que
 				  buscamos se está generando un dato
@@ -198,9 +180,12 @@
 				</section>
 
 				<section>
-				  <section data-background='img/la-piara.jpg' title='Paté la Piara, más bueno que el pan. Que no he encontrado el Apis'>
+				  <section
+				  data-background='img/el-primo-de-apis.png'
+				  title='Primo japonés de Apis'>
 				    <aside class='notes'>
-				      <p>Aquí tenía que venir una
+				      <p>Los datos se obtienen de las
+				  APIs. Aquí tenía que venir una
 					transpa de APIs, el paté, ya sabéis,
 					Apis, Papis. Era lo que iba buscando
 					pero me encontré una historia que,
@@ -274,15 +259,14 @@
 				  </section>
 				  
 				  <section>
-				    <img src='img/UMH-vs-UA-wikipedia.png' alt='Visitas a la página de la wikipedia'>
+				    <img src='img/cun-vs-un-co.png' alt='Visitas a la página de la wikipedia'>
 				    <aside class='notes'><p>Por ejemplo,
 				    usando un API muy simple de la
 				    Wikipedia se pueden descargar las
 				    visitas a las páginas día a
 				    día. Aquí las visitas a la página
-				    de la Universidad de Alicante y la
-				      de la Miguel Hernández, por
-				      ejemplo.</p>
+				    de la corporación universitaria
+				    nacional y de la universidad nacional.</p>
 
 				    <p>De hecho, la Wikipedia da
 				  acceso a <a
@@ -293,7 +277,9 @@
 				  sé si va por la dos o la tres o ya
 				  ni siquiera se llama web): se crean
 				  plataformas, no sólo sitios con
-				  contenido. También es un signo de
+				  contenido, y las páginas son fuentes
+				  de datos sin estructura a los que
+				  también se puede acceder mediante APIs. También es un signo de
 				  transparencia: por eso se puede
 				  acceder de esa forma a los datos de
 				  la Wikipedia (y no tanto a los de
@@ -301,25 +287,20 @@
 				  </section>
 				  
 				  <section>
-				    <pre><code>for (year in (2010:2014)) {
-    for (month in (1:12)) {
-        theURL <- "http://stats.grok.se/json/es/"
-        theURL <- paste0(theURL, year) # Adapta cosas        
-        theURL <- paste0(theURL, month) 
-        theURL.ugr <- paste0(theURL, "/Universidad_Miguel_Hernández")
-        rawData.ugr <- getURL(theURL.ugr)
-        data.UMH <- fromJSON(rawData.ugr)
-        df.UMH <- data.frame(Date=names(data.UMH$daily_views),Views=data.UMH$daily_views)
-        df.UMH <-  df.UMH[df.UMH$Views > 0,]
-        df.UMH$Date <- as.Date(df.UMH$Date)
-        alldata.UMH <- rbind( alldata.UMH, df.UMH )
-    }
-}
-alldata.UA <- alldata.UA[order(alldata.UA$Date),]</code></pre>
+				    <pre><code>rawData.us <- getURL("https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/es.wikipedia/all-access/all-agents/Corporaci%C3%B3n_Unificada_Nacional_de_Educaci%C3%B3n_Superior/monthly/2015100100/201810100")
+
+data.CUN <- fromJSON(rawData.us)
+df.CUN <- data.frame(matrix(unlist(data.CUN),nrow=36, byrow=T))
+df.CUN$Views <-   as.numeric(levels(df.CUN$X7))[df.CUN$X7]
+df.CUN$Date <-  as.Date(df.CUN$X4,"%Y%m%d00")
+
+ggplot(data=df.CUN,aes(x=Date,y=Views,group=1,col='CUN'))+geom_line()+geom_line(data=df.UN,aes(x=Date,y=Views,group=1,col='UN'))
+
+</code></pre>
 
 				    <aside class='notes'>Es sólo parte
         del programa, que se puede descargar <a
-				      href='datos/univs.R'>de
+				      href='datos/univs-co.R'>de
 				    aquí</a>; también se puede
 				    consultar la historia de R, es
         decir las pruebas, los datos y el resto de los comandos
@@ -337,7 +318,15 @@ alldata.UA <- alldata.UA[order(alldata.UA$Date),]</code></pre>
 				    formato estándar, que se pueden
 				    usar desde cualquier lenguaje de
 				    programación, en particular este
-				    R. </aside>
+				    R.
+Hay muchos <a
+        href='https://github.com/ylecuyer/public-apis-colombia'>APIs
+                                      públicos en Colombia</a> a los
+        que se puede acceder. También <a
+        href='https://developer.novopayment.com/'>algunas empresas de
+                                      pagos ofrecen un API </a> para
+        poder trabajar con ellas.
+                                    </aside>
 				  </section>
 				</section>
 
@@ -356,49 +345,42 @@ alldata.UA <- alldata.UA[order(alldata.UA$Date),]</code></pre>
 				  </section>
 
 				  <section>
-				    <h2>¿Cuánto pesa el Elche CF?</h2>
-				    <img src='img/pesos-elche.png'
-				    alt='pesos de los jugadores del
-				    Elche'>
+				    <h2>¿Cuánto mide el Millonarios?</h2>
+				    <img src='img/millonarios-alturas.png'
+				    alt='Altura de los jugadores del
+				    Millonarios'>
 
 				    <aside class='notes'>Los pesos se
 				    han extraído de la página oficial
-				    del Elche y no ha sido nada fácil,
+				    del Millonarios y no ha sido nada
+				    fácil, y de hecho faltan bstantes
 				    la transparencia más complicada
 				      (después de la del
 				    paté; al menos en este no tuve que
 				    ir al Mercadona y de camino
-				    comprar plátanos). El más delgado es Víctor,
-				    un medio, y el más gordo Tyton,
-				    uno de los porteros. E igual
-				    sería interesante ver qué ocurre
-				    con el resto de los equipos y
-				    cómo se distribuyen los pesos
-				    según la posición.</aside>
+				    comprar plátanos). Además, lo
+				    hemos ilustrado con la posición
+				    que ocupan.</aside>
 				  </section>
 
 				  <section>
-				    <pre><code>my $url = "http://www.elchecf.es/plantilla";
-my $dom = Mojo::DOM->new( get $url );
-my $jugadores =  $dom->find("div.titulo_datos_comunes");
-my @pesos;
-for my $p ( @$jugadores ) {
-  if ( $p->content() =~ /Peso/ ) {
-    my $peso;
-    if ( $p->content() =~ /div/ ) {
-      ($peso) = ( $p->content() =~ /o: (\d+)/ );
-    } else {
-      ($peso) = ( $p->content() =~ /(\d+)/ );
-    }
-    push @pesos, $peso;
-  }
-}
-say("Indice;Peso");
-my $i = 1;
-say join("\n",map($i++.";".$_, @pesos ));</code></pre>
+				    <pre><code>my $url = "http://www.millonarios.com.co/team";
 
-				    <aside class='notes'>Seguro que la
-				    mayoría no entiende nada. Si no
+my $dom = Mojo::DOM->new( get $url );
+my @pesos;
+my $players = $dom->find("select#player option[value]");
+# ...
+    my $this_dom = Mojo::DOM->new( get "http://www.millonarios.com.co/".$p->val );
+    my $jugador = $this_dom->at("div.sombra-detalle");
+    my $nombre = $jugador->find("strong")->map("text")->join( " " );
+    my $data = $jugador->find("p")->map("text");
+    my ($posicion) = ($data->[0] =~ /(\w+),/);
+    my ($peso) = ($data->[3] =~ /(\d+)/);</code></pre>
+
+				    <aside class='notes'>No hace falta
+				    que se entienda todo el programa,
+				    pero sí la idea general: cómo
+				    obtener datos de cualquier fuente. Si no
 				    entendéis nada, no miréis. Si R es
 				    complicado, este lenguaje, llamado
 				    Perl, ya es la leche. ¿Alguien lo
@@ -458,7 +440,8 @@ say join("\n",map($i++.";".$_, @pesos ));</code></pre>
 				  diferentes conjuntos de datos
 				  automáticamente e incluso un sitio,
 				    <a
-				  href='http://morph.io'><code>morph.io</code></a>
+				  href='http://morph.io' alt='take the
+				  hassle out of web scraping'><code>morph.io</code></a>
 				  para almacenar procedimientos de
 				  scrapeado y ejecutarlos
 				  automáticamente; todo ello en
@@ -510,7 +493,10 @@ say join("\n",map($i++.";".$_, @pesos ));</code></pre>
 				  extraer. En resumen: el reto en los
 				  datos, en muchas ocasiones y sobre
 				  todo en el periodismo de datos, es
-				    poder extraerlos.</aside>
+				    poder extraerlos. En algunos
+				  casos, se cometen faltas de
+				  ortografía para que no se encuentren
+				  en Google los datos que se buscan.</aside>
 				  </aside>
 				</section>
 
@@ -526,7 +512,7 @@ say join("\n",map($i++.";".$_, @pesos ));</code></pre>
 				</section>
 
 				<section
-				data-background='img/paro-elche.png'>
+				data-background='img/wifi-gratis.png'>
 				  <aside class='notes'>Lo primero es
 				visualizarlos. Por ejemplo, <a
 				href='http://espanaencifras.elespanol.com/?utm_content=bufferee543&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer#home_maps'>estos
@@ -541,12 +527,24 @@ say join("\n",map($i++.";".$_, @pesos ));</code></pre>
 				subir datos geolocalizados (o
 				geolocalizarlos fácilmente) y
 				representar de decenas de formas
-				diferentes sobre mapas de todo tipo. </aside>
+				diferentes sobre mapas de todo
+				tipo. En esta versión los datos de
+				Colombia son de <a
+				href='https://colombiacheck.com/datos/especiales/las-cifras-de-las-zonas-wifi-gratis.html'>Colombiacheck</a>,
+				una excelente web de análisis de datos.
+                                  </aside>
 				</section>
 
 				<section>
-				  <section data-background='img/presupuestos-cv.png'>
-				    <aside class='notes'>En <a
+				  <section data-background='img/lluvia-colombia.png'>
+				    <aside class='notes'>El <a
+				  href='http://dataviz.vam.wfp.org/Agroclimatic_Charts'>World
+				  Food Program tiene una serie de
+				      herramientas de visualización</a> que se
+				  pueden usar fácilmente; en este caso
+				  la lluvia en Colombia.
+
+                                      En <a
 				      href='http://www.dondevanmisimpuestos.es/ccaa/'>Donde
 				      Van mis Impuestos</a> visualizan
 				      los impuestos de las comunidades
@@ -579,7 +577,12 @@ say join("\n",map($i++.";".$_, @pesos ));</code></pre>
 				      y otra como <a
 				  href='http://graphext.com/'>Graphext</a>,
 				  creada hace poco por un granadino y
-				      afincada en Alicante.</aside>
+				      afincada en Alicante. Este tipo
+				    de diagrama se llama Sankey o
+				    River, y fue creado originalmente
+				    para visualizar las bajas del
+				    ejército de Napoleón durante su
+				    invasión de Rusia.</aside>
 				  </section>
 
 				</section>
@@ -760,6 +763,24 @@ say join("\n",map($i++.";".$_, @pesos ));</code></pre>
 				    al científico de datos.</aside>
 				  </section>
 
+                                  <section
+                                  data-background='https://farm2.staticflickr.com/1949/44988904472_385fb43e80_k_d.jpg'
+                                  alt='spark'>
+                                    <h1>Spark+Scala</h1>
+                                    <aside class='notes'><a
+                                  href='https://en.wikipedia.org/wiki/Apache_Spark'>Spark
+                                      forma parte de la fundación
+                                  Apache</a>, y permite trabajar con
+                                  datos distribuidos usando un
+                                      paradigma de memoria
+                                  compartida. Scala es su lenguaje
+                                  original, pero puede usarse también
+                                  con Python, R y Java. Las últimas
+                                  versiones, Spark Streaming, permiten
+                                  trabajar directamente con torrentes
+                                  de datos.</aside>
+                                  </section>
+
 				</section>
 
 				<section data-background='img/machine-learning.jpg'>
@@ -777,7 +798,10 @@ say join("\n",map($i++.";".$_, @pesos ));</code></pre>
 				    funciona sobre Spark</a> y tiene
 				  todo tipo de algoritmos de
 				  clustering, clasificación y de
-				    filtrado colaborativo. Y todo esto, ¿para qué sirve?</aside>
+				    filtrado colaborativo. Y todo
+				  esto, ¿para qué sirve? También
+				  MLlib, que funciona sobre Spark Core.
+				 </aside>
 				</section>
 
 				<section>
@@ -801,7 +825,12 @@ say join("\n",map($i++.";".$_, @pesos ));</code></pre>
 				    <aside class='notes'>Por ejemplo,
 				    ¿qué tipo de zapatos va a pedir la
 				    gente? ¿Sandalias? ¿Chanclas?
-				    ¿Náuticos?
+				    ¿Náuticos? En nuestro trabajo <a
+				      href='http://www.soc.napier.ac.uk/~40000408/ppsn/papers/Merelo-ppsn-workshop-nowcasting.pdf'>nowcasting
+				    traffic</a>, tratamos de predecir
+				    los vehículos que pasan
+				    efectivamente frente a los que
+				      detectan nuestros sensores de bluetooth
 				    </aside>
 				  </section>
 
@@ -828,7 +857,7 @@ say join("\n",map($i++.";".$_, @pesos ));</code></pre>
 
 				<section>
 				  <h2>Hay <em>mucho data</em></h2>
-				  <h1 class='fragment'>Pongamos
+				  <h1 class='fragment'>Escribamos
 				    nosotros la historia</h1>
 
 				  <aside class='notes'>La
@@ -847,94 +876,81 @@ say join("\n",map($i++.";".$_, @pesos ));</code></pre>
 				   <section>
 				     <h2>Créditos</h2>
 				     
-				     <ol>
-				       <li class='credits'>Imagen del
+				     <ol class='credits'>
+				       <li>Imagen del
 					 bus modificada de <a
 					 href='https://www.flickr.com/photos/mtaphotos/10004448523/'>MTA photos</a></li>
-				       <li class='credits'>Imagen de la Fundación del <a href='http://johnnymackintosh.com/2011/08/23/influences-on-johnny-mackintosh-isaac-asimov/'>blog de Johnny Mackintosh</a></li>
-				       <li class='credits'>Imagen del mulo de <a href='http://www.jacurutu.com/viewtopic.php?f=21&t=3213'>un foro</a></li>
-				       <li class='credits'>Imagen de
+				       <li>Imagen de la Fundación del <a href='http://johnnymackintosh.com/2011/08/23/influences-on-johnny-mackintosh-isaac-asimov/'>blog de Johnny Mackintosh</a></li>
+				       <li>Imagen del mulo de <a href='http://www.jacurutu.com/viewtopic.php?f=21&t=3213'>un foro</a></li>
+				       <li>Imagen de
 					 gente con móviles
 					 de <a href='https://www.flickr.com/photos/kk/6863172432/'>Kris
 					 Krüg</a></li>
-				       <li class='credits'>Imagen de
+				       <li>Imagen de
 					 fila de sillas
 					 por <a href='https://www.flickr.com/photos/2_funky/4999986578/'>2 funky</a></li>
-				       <li class='credits'>Uves
+				       <li>Uves
 					 de <a href='https://www.flickr.com/photos/ancienthistory/11244652695/'>ancient history</a></li>
 				       
-				       <li class='credits'>Hulk
+				       <li>Hulk
 					 de <a
 					 href='https://www.flickr.com/photos/clement127/11672279656/'>Clement127</a></li>
 				       
-				       <li class='credits'>Zarpa de oso de
+				       <li>Zarpa de oso de
 					 <a
 					   href='https://www.flickr.com/photos/ucumari/15897351745/'>Valerie</a></li>
-				       
-				   
-
-				     </ol>
-				   </section>
-				   <section>  <h2>Créditos II</h2>
-				     
-				     <ol>
-
-				           <li class='credits'>Números de <a
+				       <li>Números de <a
 					 href='https://www.flickr.com/photos/andymag/9825503886/'>Andi
 					 Maguire</a></li>
 
-				   <li class='credits'><a
+				   <li><a
 				 href='https://www.flickr.com/photos/stuartpilbrow/3206624177/'>Números
 				     de Perdidos por
 				 StuartPilbrow</a></li>
 
-				   <li class='credits'><a
+				   <li><a
 				 href='https://www.flickr.com/photos/bocadorada/283959170/'>Tuppers
 				     de Boca Dorada</a></li>
 
-				   <li class='credits'><a
+				   <li><a
 				     href='https://www.flickr.com/photos/hamed/1403196887/'>Torrente
 				     por Hamed Saber</a></li>
 				   
-				   <li class='credits'><a
+				   <li><a
 				     href='https://www.flickr.com/photos/george/3047558085/'>Mapa
 				     doblado de George Oates</a></li>
-				   <li class='credits'><a
+				   <li><a
 				     href='https://www.flickr.com/photos/jkirkhart35/4984385396/'>Fuego
 				     de campamento de Jerry Kirkhart</a></li>
-				   
+				   <li><a
+				     href='https://flic.kr/p/2bxvTUL'>Bengala
+				     de John Jones</a></li>
+                                     </ol>
 				 </section>
-			</div>
 
+                                 
+		  </div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
 		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+		 Reveal.initialize({
+                  controls: true,
+		  progress: true,
+		  history: true,
+		  center: true,
+		  transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
-
+		 dependencies: [
+		   { src: 'plugin/notes/notes.js', async: true },
+		   { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+		 ]
+		 });
 		</script>
-
 	</body>
 </html>
